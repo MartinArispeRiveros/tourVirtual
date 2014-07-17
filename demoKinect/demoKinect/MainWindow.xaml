@@ -1,0 +1,44 @@
+﻿<Window x:Class="demoKinect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demoKinect"
+        Name="VirtualGallery"
+        Title="MainWindow" 
+        Closing="WindowClosing"
+        mc:Ignorable="d"
+        d:DesignWidth="1200"
+        d:DesignHeight="700"
+        MinWidth="500"
+        MinHeight="700"
+        WindowState="Maximized" Foreground="#FF6CBDFF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  Margin="10 0 10 20">
+            <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="Images\Logo.png" Stretch="None" Margin="0 0 0 4"/>
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
+            <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" />
+            <Label HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#FF40768E" FontFamily="Year supply of fairy cakes" FontSize="18" Margin="0,26,77,0">Tour Virtual</Label>
+        </Grid>
+        <k:KinectRegion Grid.Row="1" Name="kinectRegion">
+
+            <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="170" />
+                </Grid.RowDefinitions>                
+                <WrapPanel VerticalAlignment="Center" x:Name="wrapPanel" Orientation="Vertical" k:KinectTileButton.Click="KinectTileButtonClick">
+                    <k:KinectTileButton Label="VIDEOS" Click="KinectTileButton_Click"/>
+                    <k:KinectTileButton Label="IMAGENES" Click="KinectTileButton_Click_1" />
+                    <k:KinectTileButton Label="3"/>
+                    <k:KinectTileButton Label="4"/>                    
+                </WrapPanel>                
+            </Grid>            
+        </k:KinectRegion>        
+    </Grid>    
+</Window>

@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="demoKinect.UCVideo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:k="http://schemas.microsoft.com/kinect/2013"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="700"
+             Background="#6A000000">
+    
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    <Grid x:Name="Video" Height="400" Width="400">
+        <Grid >
+
+            <MediaElement Canvas.Left="50" Canvas.Top ="50"
+                Source="T:\Archivos Tincho\Music\videos\motivacion\correr.mp4" Name="VideoControl" LoadedBehavior="Manual" UnloadedBehavior="Stop"  >
+            </MediaElement>
+            
+            <k:KinectCircleButton  HorizontalAlignment="Right"  VerticalAlignment="Top" Height="58" Click="PlayClic" Margin="0,310,262,0" Background="{x:Null}" Width="70">Play</k:KinectCircleButton>
+            <k:KinectCircleButton  HorizontalAlignment="Right"  VerticalAlignment="Top" Height="58" Click="PauseClic" Margin="0,310,112,0" Background="{x:Null}" Width="70">Pause</k:KinectCircleButton>
+        </Grid>
+    </Grid>
+</UserControl>
